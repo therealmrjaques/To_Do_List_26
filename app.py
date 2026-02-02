@@ -7,10 +7,30 @@ to_do_list = []
 is_sorted = False
 priority_order_high_to_low = {"High": 1, "Medium": 2, "Low": 3}
 priority_order_low_to_high = {"Low": 1, "Medium": 2, "High": 3}
+edit_index = None
 
 @app.route("/")
 def index():
-    return render_template("index.html", priorities = PRIORITIES, to_do_list = to_do_list)
+    return render_template("index.html", priorities = PRIORITIES, to_do_list = to_do_list, edit_index=edit_index)
+
+@app.route('/edit_item', methods=["POST"])
+def edit_item():
+    global edit_index
+    edit_index = int(request.form.get("edit"))
+    return redirect("/")
+
+@app.route('/save_item', methods=["POST"])
+def save_item():
+    global edit_index
+    record_index = int(request.form.get("edit_index")) - 1
+    new_item = request.form.get("new_item")
+    new_priority = request.form.get("new_priority")
+
+    to_do_list[record_index]["item"] = new_item
+    to_do_list[record_index]["priority"] = new_priority
+
+    edit_index = None
+    return redirect("/")
 
 @app.route('/updateList', methods=["POST"])
 def updateList():
@@ -20,6 +40,15 @@ def updateList():
     to_do_list.append({"index": index, "item": item, "priority": priority})
     return redirect("/")
 
+@app.route('/delete_item', methods=["POST"])
+def delete_item():
+    record_index = int(request.form.get("delete")) - 1
+    to_do_list.pop(record_index)
+
+    for i, item in enumerate(to_do_list):
+        item["index"] = i + 1
+
+    return redirect("/")
 
 @app.route('/sort')
 def sort():
