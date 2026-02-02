@@ -26,19 +26,19 @@
         <th>Delete</th>
     </tr>
     <tbody>
-     
-            <tr>
-                <td>1</td>
-                <td>Study</td>
-                <td>High</td>
-                <td class="edit">
-                    <button class="edit-btn" title="Edit">&#9998;</button>
-                </td>
-                <td class="delete">
-                    <button class="delete-btn" title="Delete">&#128465;</button>
-                </td>
-            </tr>
-
+        {% for record in to_do_list %}
+         <tr>
+            <td>{{ record.index }}</td>
+            <td>{{ record.item }}</td>
+            <td>{{ record.priority }}</td>
+            <td class="edit">
+                <button class="edit-btn" title="Edit">&#9998;</button>
+            </td>
+            <td class="delete">
+                <button class="delete-btn" title="Delete">&#128465;</button>
+            </td>
+        </tr>
+        {% endfor %}
     </tbody>
 </table>
 <br>
