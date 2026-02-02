@@ -1,0 +1,126 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+
+h1 {
+    color: #2c83ec;
+    text-align: center;
+}
+
+.wrapper {
+    margin: 0 auto;
+    padding: 0 10%;
+    border: solid #333333;;
+    background-color: 	#d4e9fe;
+}
+
+.itemAdd {
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid #333333;;
+    padding: 0 10%;
+    text-align: center;
+}
+
+.itemAdd input[type="text"] {
+    width: 300px;
+}
+
+.itemAdd input[type="text"], 
+    .itemAdd select {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px 5px;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: 	#d4e9fe;
+        color: #333333;
+    }
+
+
+
+.itemAdd button  {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2c83ec;
+    color: white;
+}
+
+table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #333333;
+    border-collapse: collapse;
+    color: #333333;
+}
+
+th,td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #333333;
+}
+
+.sort-btn {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px 5px;
+    padding: 10px;
+    background-color: #2c83ec;
+    color: white;
+}
+
+#id_column {
+    width: 20px;
+}
+
+#item_column {
+    width: 500px;
+}
+
+.edit-btn {
+    background-color: #2c83ec;
+    color: white;
+    font-size: 1.25em;
+    padding: 10px 12px;
+}
+
+.delete-btn {
+    background-color: #2c83ec;
+    color: white;
+    font-size: 1.25em;
+    padding: 10px 15px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        margin: 0;
+        padding: 0 5%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 1.2em;
+    }
+
+    .itemAdd input[type="text"],
+    .itemAdd select,
+    .itemAdd button {
+        width: 100%;
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    th#id_column,
+    td:first-child {
+        display: none;
+    }
+}

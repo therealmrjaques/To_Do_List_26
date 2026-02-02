@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Mr Jaques' To Do List</h1>
+
+<div class="itemAdd">
+    <form action="/updateList" method="post">
+        <input autocomplete="off" autofocus name="item" placeholder="Task Description" type="text">
+        <select name="priority">
+            <option disabled selected value="">Select Priority</option>
+            {% for priority in priorities %}
+            <option value={{priority}}>{{priority}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add Item</button>
+    </form>
+</div>
+<br>
+<table class="toDoList">
+    <tr>
+        <th id="id_column">Item Number</th>
+        <th id="item_column">Item</th>
+        <th>Priority <button class="sort-btn" onclick="location.href='{{url_for('sort')}}'">&#9650; &#9660;</button></th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tbody>
+     
+            <tr>
+                <td>1</td>
+                <td>Study</td>
+                <td>High</td>
+                <td class="edit">
+                    <button class="edit-btn" title="Edit">&#9998;</button>
+                </td>
+                <td class="delete">
+                    <button class="delete-btn" title="Delete">&#128465;</button>
+                </td>
+            </tr>
+
+    </tbody>
+</table>
+<br>
+<br>
+{% endblock %}
