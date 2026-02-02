@@ -8,6 +8,7 @@ PRIORITIES = ["High", "Medium", "Low"]
 def index():
     return render_template("index.html", priorities = PRIORITIES)
 
+#Second comment
 @app.route('/sort')
 def sort():
     pass
