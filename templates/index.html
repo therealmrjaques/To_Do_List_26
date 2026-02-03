@@ -26,21 +26,21 @@
         <th>Delete</th>
     </tr>
     <tbody>
-        {% for record in to_do_list %}
+        {% for row in to_do_list %}
          <tr>
-            <td id="id_column">{{ record.index }}</td>
-            {% if record.index == edit_index %}
+            <td id="id_column">{{ row[0] }}</td>
+            {% if row[0] == edit_index %}
             <form action ="{{ url_for('save_item')}}" method="POST">
                 <td>
-                    <input type="text" name="new_item" value="{{ record.item }}">
-                    <input type="hidden" name="edit_index" value="{{ record.index }}">
+                    <input type="text" name="new_item" value="{{ row[1] }}">
+                    <input type="hidden" name="edit_index" value="{{ row[0] }}">
 
                 </td>
                 <td>
                     <select name="new_priority">
                         {% for priority in priorities %}
                             <option value="{{ priority }}" 
-                                {% if priority == record.priority %}selected{% endif %}>
+                                {% if priority == row[2] %}selected{% endif %}>
                                 {{ priority }}
                             </option>
                         {% endfor %} 
@@ -52,11 +52,11 @@
             </form>
             {%else%}
 
-            <td id="item_column">{{ record.item }}</td>
-            <td>{{ record.priority }}</td>
+            <td id="item_column">{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
             <td class="edit">
                 <form action ="{{ url_for('edit_item')}}" method = "POST">
-                    <input type = "hidden" name ="edit" value="{{ record.index }}">
+                    <input type = "hidden" name ="edit" value="{{ row[0] }}">
                     <button class="edit-btn" title="Edit">&#9998;</button>
                 </form>
                 
@@ -64,7 +64,7 @@
             {% endif %}
             <td class="delete">
                 <form action ="{{ url_for('delete_item')}}" method = "POST">
-                    <input type = "hidden" name ="delete" value="{{ record.index }}">
+                    <input type = "hidden" name ="delete" value="{{ row[0] }}">
                     <button class="delete-btn" title="Delete">&#128465;</button>
                 </form>
             </td>
