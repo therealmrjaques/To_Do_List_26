@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 #Another comment
+#3rd comment
 PRIORITIES = ["High", "Medium", "Low"]
 #to_do_list = []
 is_sorted = False
