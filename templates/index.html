@@ -1,8 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
-<h1>Mr Jaques' To Do List</h1>
+<br>
+<div class="logout-container">
+    <form action="{{ url_for('logout') }}" method="get" style="display: inline;">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+<h1>{{ username }} To Do List</h1>
 
 <div class="itemAdd">
     <form action="/updateList" method="post">

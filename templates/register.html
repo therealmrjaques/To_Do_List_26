@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<br>
+<h1>Register</h1>
+<div class="login-wrapper">
+    
+    <div class="login">
+    <form action="/register" method="post">
+        <input name="username" placeholder="Username" type="text" required>
+        <input name="password" placeholder="Password" type="password" required>
+        <button type="submit">Register</button>
+    </form>
+    </div>
+</div>
+<p class="login_p_text">Already have an account? <a href="/login">Login Here</a>.</p>
+{% endblock %}
